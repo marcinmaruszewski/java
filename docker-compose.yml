@@ -1,8 +1,6 @@
-version: "3.8"
-
 services:
   crafty:
-    image: arcadiatech/crafty:latest
+    image: ghcr.io/crafty-controller/crafty:latest
     container_name: crafty
     restart: unless-stopped
     environment:
