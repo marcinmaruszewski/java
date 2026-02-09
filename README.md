@@ -68,8 +68,11 @@ Dane serwera są w wolumenie `teamspeak_data`. Licencja jest akceptowana przez `
 
 ## Struktura wolumenów
 
-- `crafty_data` – konfiguracja panelu.
+- `crafty_config` – konfiguracja panelu.
 - `crafty_backups` – backupy z Crafty.
+- `crafty_servers` – dane serwerów zarządzanych przez Crafty.
+- `crafty_logs` – logi Crafty.
+- `crafty_import` – folder importu instancji.
 - `java_lobby_data` / `java_survival_data` – dane światów.
 - `teamspeak_data` – konfiguracja TeamSpeak.
 

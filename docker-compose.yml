@@ -1,6 +1,6 @@
 services:
   crafty:
-    image: ghcr.io/crafty-controller/crafty:latest
+    image: registry.craftycontrol.com/crafty:latest
     container_name: crafty
     restart: unless-stopped
     environment:
@@ -9,8 +9,11 @@ services:
       - "8000:8000"
       - "8443:8443"
     volumes:
-      - crafty_data:/crafty/data
-      - crafty_backups:/crafty/backups
+      - crafty_config:/crafty/app/config
+      - crafty_backups:/crafty/app/backups
+      - crafty_servers:/crafty/app/servers
+      - crafty_logs:/crafty/app/logs
+      - crafty_import:/crafty/app/import
 
   java_lobby:
     image: itzg/minecraft-server:latest
@@ -86,8 +89,11 @@ services:
 volumes:
   java_lobby_data:
   java_survival_data:
-  crafty_data:
+  crafty_config:
   crafty_backups:
+  crafty_servers:
+  crafty_logs:
+  crafty_import:
   teamspeak_data:
   caddy_data:
   caddy_config:
