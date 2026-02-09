@@ -8,56 +8,14 @@ services:
     ports:
       - "8000:8000"
       - "8443:8443"
+      - "25565:25565" # Minecraft Lobby
+      - "25566:25566" # Minecraft Survival
     volumes:
       - crafty_config:/crafty/app/config
       - crafty_backups:/crafty/app/backups
       - crafty_servers:/crafty/app/servers
       - crafty_logs:/crafty/app/logs
       - crafty_import:/crafty/app/import
-
-  java_lobby:
-    image: itzg/minecraft-server:latest
-    container_name: java_lobby
-    restart: unless-stopped
-    environment:
-      EULA: "TRUE"
-      TZ: ${TZ}
-      TYPE: "FABRIC"
-      VERSION: "1.21.1"
-      SERVER_NAME: "Lobby"
-      LEVEL: "lobby"
-      GAMEMODE: "creative"
-      DIFFICULTY: "peaceful"
-      MAX_PLAYERS: "20"
-      MEMORY: "4G"
-      MODRINTH_PROJECTS: "bluemap"
-    ports:
-      - "25565:25565"
-      - "8100:8100"
-    volumes:
-      - java_lobby_data:/data
-
-  java_survival:
-    image: itzg/minecraft-server:latest
-    container_name: java_survival
-    restart: unless-stopped
-    environment:
-      EULA: "TRUE"
-      TZ: ${TZ}
-      TYPE: "FABRIC"
-      VERSION: "1.21.1"
-      SERVER_NAME: "Survival"
-      LEVEL: "survival"
-      GAMEMODE: "survival"
-      DIFFICULTY: "normal"
-      MAX_PLAYERS: "20"
-      MEMORY: "6G"
-      MODRINTH_PROJECTS: "bluemap"
-    ports:
-      - "25566:25565"
-      - "8101:8100"
-    volumes:
-      - java_survival_data:/data
 
   teamspeak:
     image: teamspeak:latest
@@ -87,8 +45,6 @@ services:
       - caddy_config:/config
 
 volumes:
-  java_lobby_data:
-  java_survival_data:
   crafty_config:
   crafty_backups:
   crafty_servers:
