@@ -1,6 +1,6 @@
 services:
   crafty:
-    image: registry.craftycontrol.com/crafty:latest
+    image: registry.gitlab.com/crafty-controller/crafty-4:latest
     container_name: crafty
     restart: unless-stopped
     environment:
