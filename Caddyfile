@@ -1,3 +1,8 @@
 {$CRAFTY_DOMAIN} {
-  reverse_proxy crafty:8000
+  reverse_proxy crafty:8443 {
+    transport http {
+      tls
+      tls_insecure_skip_verify
+    }
+  }
 }
